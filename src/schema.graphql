@@ -1,0 +1,28 @@
+type Query {
+    persons: [Person!]!
+    person(id: ID!): Person
+    vehicles: [Vehicle!]!
+    vehicle(govNum: String!, personId: ID): Vehicle!
+    weapons: [Weapon!]!
+    weapon(weaponNo: String!, personId: ID): Weapon!
+}
+type  Weapon {
+    weaponNo: String!
+    model: String!
+    personId: ID!
+    person: Person
+}
+type  Vehicle{
+    govNum: String!
+    model: String!
+    personId: ID!
+    person: Person
+}
+type Person {
+    id: ID!
+    personalNo: String!
+    firstName: String
+    lastName: String
+    vehicles: [Vehicle!]!
+    weapons: [Weapon!]!
+}
